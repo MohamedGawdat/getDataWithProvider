@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ibtikar_test/data/models/person/person_module.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibtikar_test/style/app_text_style.dart';
+import 'package:ibtikar_test/utilities/image_view.dart';
 import '../../../constants.dart';
 
 class SinglePersonCard extends StatefulWidget {
@@ -31,13 +32,18 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.network(
-              AppConst.imageBaseUrl +
-                  widget.data.profilePath,
-              width: .45.sw,
-              height: .5.sw,
-              fit: BoxFit.fill,
+            ImageView(url: AppConst.imageBaseUrl +
+                widget.data.profilePath,
+                width: .45.sw,
+                height: .5.sw,
             ),
+            // Image.network(
+            //   AppConst.imageBaseUrl +
+            //       widget.data.profilePath,
+            //   width: .45.sw,
+            //   height: .5.sw,
+            //   fit: BoxFit.fill,
+            // ),
             Text(widget.data.name,style: normalTextBold,),
             Flexible(child: Text(concatenate.toString(),style: smallGreyText,maxLines: 2,textAlign: TextAlign.center,))
           ],
