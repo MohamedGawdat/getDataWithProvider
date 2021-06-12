@@ -138,7 +138,7 @@ class KnownFor {
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'] ?? 'No Data';
     overview = json['overview'] ?? 'No Data';
-    posterPath = json['poster_path'] ?? 'No Data';
+    posterPath =AppConst.imageBaseUrl+json['poster_path'];
     releaseDate = json['release_date'] ?? 'No Data';
     title = json['title'] ?? 'No Data';
     video = json['video'] ?? false;

@@ -24,17 +24,14 @@ TextStyle hugeTextBold = TextStyle(
     fontWeight: FontWeight.w800, fontSize: 45.sp, color: Colors.black);
 
 TextStyle smallGreyText = TextStyle(
-    fontWeight: FontWeight.w500, fontSize: 28.sp, color: AppColors.PRIMARY);
+    fontWeight: FontWeight.w500, fontSize: 28.sp, color: AppColors.greyColor);
 TextStyle bigGreyText = TextStyle(
-    fontWeight: FontWeight.w500, fontSize: 35.sp, color: AppColors.PRIMARY);
+    fontWeight: FontWeight.w500, fontSize: 35.sp, color: AppColors.greyColor);
 
-TextStyle blueChaletText = TextStyle(
+TextStyle blueText = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 30.sp,
-    color: AppColors.PRIMARY);
+    color: AppColors.Sec_Color);
 
-SizedBox sizeH5 = const SizedBox(height: 5),
-    sizeH10 = const SizedBox(height: 10),
-    sizeW10 = const SizedBox(width: 10),
-    sizeW5 = const SizedBox(width: 5);
+
 // }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hive/hive.dart';
@@ -12,31 +14,41 @@ class HomeScreenProvider extends ChangeNotifier {
   int currentPage = 1;
   bool hasNetwork = true;
   List<PopularPersonResults> peopleResults = [];
+  late PeopleApiResponse personApiResponse;
   // late PersonApiResponse personApiResponse ;
   getPopularPersonsList() async {
     var box = await Hive.openBox('peopleFirstPageBox');
 
-    print('Name: ${box.get('name')}');
     hasNetwork= await checkInternetConnection();
+if (!hasNetwork){
 
-    if (currentPage == 1) EasyLoading.show(status: 'loading...');
+  var cacheJsonEncode= jsonEncode(box.get('personsPage1'));
+  personApiResponse =
+  PeopleApiResponse.fromJson(jsonDecode(cacheJsonEncode) as Map<String, dynamic>);
+   peopleResults =  personApiResponse.results;
 
-    ApiResponse response = await ApiManager.sendRequest(
-        link:
-            "person/popular?api_key=${AppConst.apiAuthKey}&page=${currentPage.toString()}",
-        method: Method.GET);
+}
+else{
+  if (currentPage == 1) EasyLoading.show(status: 'loading...');
 
-    if (response.isSuccess) {
-      PeopleApiResponse personApiResponse =
-          PeopleApiResponse.fromJson(response.data as Map<String, dynamic>);
-      box.put('personsPage1', response.data);
+  ApiResponse response = await ApiManager.sendRequest(
+      link:
+      "person/popular?api_key=${AppConst.apiAuthKey}&page=${currentPage.toString()}",
+      method: Method.GET);
 
-      totalPages = personApiResponse.totalPages;
-      currentPage = personApiResponse.page;
+  if (response.isSuccess) {
+     personApiResponse =
+    PeopleApiResponse.fromJson(response.data as Map<String, dynamic>);
+    box.put('personsPage1', response.data as Map<String, dynamic>);
 
-      peopleResults = peopleResults + personApiResponse.results;
-    }
-    if (currentPage == 1) EasyLoading.dismiss();
+    totalPages = personApiResponse.totalPages;
+    currentPage = personApiResponse.page;
+
+    peopleResults = peopleResults + personApiResponse.results;
+  }
+  if (currentPage == 1) EasyLoading.dismiss();
+}
+
     notifyListeners();
   }
 
