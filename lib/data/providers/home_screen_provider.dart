@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ibtikar_test/constants.dart';
-import 'package:ibtikar_test/data/models/person/person_module.dart';
+import 'package:ibtikar_test/data/models/person/people_model.dart';
 import 'package:ibtikar_test/data/network/ApiManager.dart';
 import 'package:ibtikar_test/data/network/ApiResponse.dart';
 
@@ -9,7 +9,7 @@ class HomeScreenProvider extends ChangeNotifier {
   late int totalPages;
   int currentPage = 1;
 
-  List<PopularPeopleResults> peopleResults = [];
+  List<PopularPersonResults> peopleResults = [];
   // late PersonApiResponse personApiResponse ;
   getPopularPersonsList() async {
     EasyLoading.show(status: 'loading...');
@@ -21,8 +21,8 @@ class HomeScreenProvider extends ChangeNotifier {
     EasyLoading.dismiss();
 
     if (response.isSuccess) {
-      PersonApiResponse personApiResponse =
-          PersonApiResponse.fromJson(response.data as Map<String, dynamic>);
+      PeopleApiResponse personApiResponse =
+          PeopleApiResponse.fromJson(response.data as Map<String, dynamic>);
       totalPages = personApiResponse.totalPages;
       currentPage = personApiResponse.page;
 

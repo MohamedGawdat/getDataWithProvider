@@ -82,7 +82,7 @@ class _MyHomePageState extends State<HomeScreen> {
             child: StaggeredGridView.countBuilder(
             crossAxisCount: 2,
             itemCount: provider.peopleResults.length,
-            itemBuilder: (BuildContext context, int index) => SinglePersonCard(data: provider.peopleResults[index]),
+            itemBuilder: (BuildContext context, int index) => SinglePersonCard(personData: provider.peopleResults[index]),
             staggeredTileBuilder: (int index) => new StaggeredTile.count(1, 1.5),
             mainAxisSpacing: 4.0,
             crossAxisSpacing: 4.0,

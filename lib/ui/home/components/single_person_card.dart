@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ibtikar_test/data/models/person/person_module.dart';
+import 'package:ibtikar_test/data/models/person/people_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ibtikar_test/data/providers/person_details_provider.dart';
 import 'package:ibtikar_test/style/app_text_style.dart';
+import 'package:ibtikar_test/ui/person_details/person_details_screen.dart';
 import 'package:ibtikar_test/utilities/image_view.dart';
-import '../../../constants.dart';
+import 'package:ibtikar_test/utilities/navigation.dart';
+import 'package:provider/provider.dart';
 
 class SinglePersonCard extends StatefulWidget {
-  final PopularPeopleResults data;
-  const SinglePersonCard({Key? key, required this.data}) : super(key: key);
+  final PopularPersonResults personData;
+  const SinglePersonCard({Key? key, required this.personData})
+      : super(key: key);
 
   @override
   _SinglePersonCardState createState() => _SinglePersonCardState();
@@ -19,7 +23,7 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.data.knownFor.forEach((item){
+    widget.personData.knownFor.forEach((item) {
       concatenate.write(item.title);
     });
   }
@@ -28,25 +32,35 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 5),
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ImageView(url: AppConst.imageBaseUrl +
-                widget.data.profilePath,
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5),
+        child: InkWell(
+          onTap: () => NavigateUtil.navigate(
+              context,
+              ChangeNotifierProvider(
+                  create: (context) => PersonDetailsProvider(),
+                  builder: (context, child) =>
+                      PersonDetailsScreen(personData: widget.personData))),
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ImageView(
+                url: widget.personData.profilePath,
                 width: .45.sw,
                 height: .5.sw,
-            ),
-            // Image.network(
-            //   AppConst.imageBaseUrl +
-            //       widget.data.profilePath,
-            //   width: .45.sw,
-            //   height: .5.sw,
-            //   fit: BoxFit.fill,
-            // ),
-            Text(widget.data.name,style: normalTextBold,),
-            Flexible(child: Text(concatenate.toString(),style: smallGreyText,maxLines: 2,textAlign: TextAlign.center,))
-          ],
+              ),
+              Text(
+                widget.personData.name,
+                style: normalTextBold,
+              ),
+              Flexible(
+                  child: Text(
+                concatenate.toString(),
+                style: smallGreyText,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+              ))
+            ],
+          ),
         ),
       ),
     );

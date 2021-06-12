@@ -1,22 +1,24 @@
-class PersonApiResponse {
+import '../../../constants.dart';
+
+class PeopleApiResponse {
   late int page;
-  late List<PopularPeopleResults> results;
+  late List<PopularPersonResults> results;
   late int totalPages;
   late int totalResults;
 
-  PersonApiResponse(
+  PeopleApiResponse(
       {required this.page,
       required this.results,
       required this.totalPages,
       required this.totalResults});
 
-  PersonApiResponse.fromJson(Map<String, dynamic> json) {
+  PeopleApiResponse.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
         results
-            .add(new PopularPeopleResults.fromJson(v as Map<String, dynamic>));
+            .add(new PopularPersonResults.fromJson(v as Map<String, dynamic>));
       });
     }
     totalPages = json['total_pages'];
@@ -35,7 +37,7 @@ class PersonApiResponse {
   }
 }
 
-class PopularPeopleResults {
+class PopularPersonResults {
   late bool adult;
   late int gender;
   late int id;
@@ -45,7 +47,7 @@ class PopularPeopleResults {
   late double popularity;
   late String profilePath;
 
-  PopularPeopleResults(
+  PopularPersonResults(
       {required this.adult,
       required this.gender,
       required this.id,
@@ -55,7 +57,7 @@ class PopularPeopleResults {
       required this.popularity,
       required this.profilePath});
 
-  PopularPeopleResults.fromJson(Map<String, dynamic> json) {
+  PopularPersonResults.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     gender = json['gender'];
     id = json['id'];
@@ -68,7 +70,7 @@ class PopularPeopleResults {
     knownForDepartment = json['known_for_department'];
     name = json['name'];
     popularity = json['popularity'];
-    profilePath = json['profile_path'];
+    profilePath =AppConst.imageBaseUrl+ json['profile_path'];
   }
 
   Map<String, dynamic> toJson() {

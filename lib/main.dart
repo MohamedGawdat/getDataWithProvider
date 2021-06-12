@@ -7,28 +7,24 @@ import 'style/app_theme.dart';
 import 'ui/home/home_screen.dart';
 
 void main() {
-  runApp(    MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(720, 1600),
-      builder: () =>
-       MaterialApp(
+      builder: () => MaterialApp(
         title: 'Flutter Ibtikar Task',
-         theme: AppTheme.APP_THEME,
-
-         home: ChangeNotifierProvider(
+        theme: AppTheme.APP_THEME,
+        debugShowCheckedModeBanner: false,
+        home: ChangeNotifierProvider(
             create: (context) => HomeScreenProvider(),
-            builder: (context, child) =>  HomeScreen(title: 'Flutter Ibtikar Task')),
+            builder: (context, child) =>
+                HomeScreen(title: 'Flutter Ibtikar Task')),
         builder: EasyLoading.init(),
-
       ),
     );
   }
 }
-
-

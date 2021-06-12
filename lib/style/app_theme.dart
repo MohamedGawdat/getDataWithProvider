@@ -17,7 +17,7 @@ class AppTheme {
           backgroundColor: AppColors.PRIMARY,
           elevation: 1,
           centerTitle: true,
-          iconTheme: IconThemeData(color: AppColors.PRIMARY)),
+          iconTheme: IconThemeData(color: AppColors.MainTextColor)),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
