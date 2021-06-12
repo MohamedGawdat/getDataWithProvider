@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ibtikar_test/constants.dart';
+import 'package:ibtikar_test/constants/constants.dart';
 import 'ApiResponse.dart';
 import 'BaseResponse.dart';
 import 'RequestBody.dart';

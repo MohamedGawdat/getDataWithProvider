@@ -23,22 +23,9 @@ class _MyHomePageState extends State<HomeScreen> {
   RefreshController _refreshController =
   RefreshController(initialRefresh: false);
 
-  void _onRefresh() async{
-    Provider.of<HomeScreenProvider>(context, listen: false)
-        .resetData();
-    _refreshController.refreshCompleted();
-  }
 
-  void _onLoading() async{
-
-    Provider.of<HomeScreenProvider>(context, listen: false)
-        .getNextPage();
-
-    _refreshController.loadComplete();
-  }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Provider.of<HomeScreenProvider>(context, listen: false)
         .getPopularPersonsList();
@@ -94,5 +81,17 @@ class _MyHomePageState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  void _onRefresh() async{
+   await Provider.of<HomeScreenProvider>(context, listen: false)
+        .resetPeopleList();
+    _refreshController.refreshCompleted();
+  }
+
+  void _onLoading() async{
+   await Provider.of<HomeScreenProvider>(context, listen: false)
+        .fetchNextPage();
+    _refreshController.loadComplete();
   }
 }

@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'app_colours.dart';
-
+import 'app_colors.dart';
 
 // class Constants {
 //  static
 TextStyle headersTestStyle =
-TextStyle(fontWeight: FontWeight.w600, fontSize: 35.sp, letterSpacing: 0.8);
-TextStyle easyYellowTextButtonStyle = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 30.sp,
-    letterSpacing: 0.8,
-    color: AppColors.PRIMARY);
+    TextStyle(fontWeight: FontWeight.w600, fontSize: 35.sp, letterSpacing: 0.8);
 
 TextStyle normalTextSemiBold = TextStyle(
     fontWeight: FontWeight.w500, fontSize: 30.sp, color: Colors.black);
@@ -29,9 +23,6 @@ TextStyle bigGreyText = TextStyle(
     fontWeight: FontWeight.w500, fontSize: 35.sp, color: AppColors.greyColor);
 
 TextStyle blueText = TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: 30.sp,
-    color: AppColors.Sec_Color);
-
+    fontWeight: FontWeight.w600, fontSize: 30.sp, color: AppColors.Sec_Color);
 
 // }

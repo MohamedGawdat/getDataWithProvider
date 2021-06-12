@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:ibtikar_test/ui/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'data/cache/cache_util.dart';
 import 'data/providers/home_screen_provider.dart';
 import 'style/app_theme.dart';
 import 'ui/home/home_screen.dart';
@@ -15,9 +16,9 @@ void main() async {
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light));
   WidgetsFlutterBinding.ensureInitialized();
-
-  final appDocumentDir = await getApplicationDocumentsDirectory();
-  Hive.init(appDocumentDir.path);
+  CacheUtil.init();
+  // final appDocumentDir = await getApplicationDocumentsDirectory();
+  // Hive.init(appDocumentDir.path);
   // await Hive.initFlutter();
 
   runApp(MyApp());

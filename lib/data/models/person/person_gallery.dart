@@ -1,10 +1,10 @@
-import 'package:ibtikar_test/constants.dart';
+import 'package:ibtikar_test/constants/constants.dart';
 
 class PersonGallery {
   late int id;
   late List<ProfileGallery> profiles;
 
-  PersonGallery({required this.id,required this.profiles});
+  PersonGallery({required this.id, required this.profiles});
 
   PersonGallery.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -28,7 +28,7 @@ class PersonGallery {
 
 class ProfileGallery {
   late double aspectRatio;
-  late  String filePath;
+  late String filePath;
   late int height;
   late Null iso6391;
   late double voteAverage;
@@ -37,16 +37,16 @@ class ProfileGallery {
 
   ProfileGallery(
       {required this.aspectRatio,
-        required  this.filePath,
-        required  this.height,
-        required  this.iso6391,
-        required  this.voteAverage,
-        required  this.voteCount,
-        required  this.width});
+      required this.filePath,
+      required this.height,
+      required this.iso6391,
+      required this.voteAverage,
+      required this.voteCount,
+      required this.width});
 
   ProfileGallery.fromJson(Map<String, dynamic> json) {
     aspectRatio = json['aspect_ratio'];
-    filePath = AppConst.imageBaseUrl +json['file_path'];
+    filePath = AppConst.imageBaseUrl + json['file_path'];
     height = json['height'];
     iso6391 = json['iso_639_1'];
     voteAverage = json['vote_average'];
@@ -57,7 +57,7 @@ class ProfileGallery {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['aspect_ratio'] = this.aspectRatio;
-    data['file_path'] =this.filePath;
+    data['file_path'] = this.filePath;
     data['height'] = this.height;
     data['iso_639_1'] = this.iso6391;
     data['vote_average'] = this.voteAverage;

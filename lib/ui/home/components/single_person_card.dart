@@ -43,10 +43,13 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ImageView(
-                url: widget.personData.profilePath,
-                width: .45.sw,
-                height: .5.sw,
+              Hero(
+                tag: widget.personData.profilePath + 'hero',
+                child: ImageView(
+                  url: widget.personData.profilePath,
+                  width: .45.sw,
+                  height: .5.sw,
+                ),
               ),
               Text(
                 widget.personData.name,

@@ -1,4 +1,4 @@
-import '../../../constants.dart';
+import '../../../constants/constants.dart';
 
 class PeopleApiResponse {
   late int page;
@@ -70,7 +70,7 @@ class PopularPersonResults {
     knownForDepartment = json['known_for_department'];
     name = json['name'];
     popularity = json['popularity'];
-    profilePath =AppConst.imageBaseUrl+ json['profile_path'];
+    profilePath = AppConst.imageBaseUrl + json['profile_path'];
   }
 
   Map<String, dynamic> toJson() {
@@ -131,14 +131,14 @@ class KnownFor {
 
   KnownFor.fromJson(Map<String, dynamic> json) {
     adult = json['adult'] ?? false;
-    backdropPath = json['backdrop_path']??'No Data';
+    backdropPath = json['backdrop_path'] ?? 'No Data';
     genreIds = json['genre_ids'];
     id = json['id'];
     mediaType = json['media_type'];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'] ?? 'No Data';
     overview = json['overview'] ?? 'No Data';
-    posterPath =AppConst.imageBaseUrl+json['poster_path'];
+    posterPath = AppConst.imageBaseUrl + json['poster_path'];
     releaseDate = json['release_date'] ?? 'No Data';
     title = json['title'] ?? 'No Data';
     video = json['video'] ?? false;

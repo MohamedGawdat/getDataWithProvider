@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'app_colours.dart';
+import 'app_colors.dart';
 
 class AppTheme {
   static final ThemeData APP_THEME = new ThemeData(
@@ -10,8 +10,11 @@ class AppTheme {
       textTheme: GoogleFonts.ubuntuTextTheme(),
       buttonColor: AppColors.PRIMARY,
       // buttonColor: AppColors.YELLOW_COLOR,
-      primaryTextTheme:
-      TextTheme(headline6: TextStyle(color: AppColors.Sec_Color, fontWeight: FontWeight.w700,letterSpacing: 1)),
+      primaryTextTheme: TextTheme(
+          headline6: TextStyle(
+              color: AppColors.Sec_Color,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 1)),
       appBarTheme: AppBarTheme(
           actionsIconTheme: IconThemeData(color: AppColors.Sec_Color),
           backgroundColor: AppColors.PRIMARY,
