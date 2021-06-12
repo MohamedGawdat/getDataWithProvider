@@ -21,7 +21,6 @@ class PersonDetailsScreen extends StatefulWidget {
 class _PersonDetailsScreenState extends State<PersonDetailsScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Provider.of<PersonDetailsProvider>(context, listen: false)
         .fetchPersonImages(widget.personData.id);

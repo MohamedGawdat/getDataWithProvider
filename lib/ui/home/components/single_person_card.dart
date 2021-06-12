@@ -21,7 +21,6 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
   var concatenate = StringBuffer();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     widget.personData.knownFor.forEach((item) {
       concatenate.write(item.title);
