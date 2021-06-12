@@ -10,7 +10,7 @@ import 'style/app_theme.dart';
 import 'ui/home/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
 
-void main() async{
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light));
@@ -19,7 +19,6 @@ void main() async{
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
   // await Hive.initFlutter();
-
 
   runApp(MyApp());
 }
@@ -33,10 +32,7 @@ class MyApp extends StatelessWidget {
         title: 'Ibtikar Task',
         theme: AppTheme.APP_THEME,
         debugShowCheckedModeBanner: false,
-        home: ChangeNotifierProvider(
-            create: (context) => HomeScreenProvider(),
-            builder: (context, child) =>
-                SplashScreen()),
+        home: SplashScreen(),
         builder: EasyLoading.init(),
       ),
     );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_sequence_animation/flutter_sequence_animation.dart';
+import 'package:ibtikar_test/data/providers/home_screen_provider.dart';
 import 'package:ibtikar_test/style/app_colours.dart';
 import 'package:ibtikar_test/ui/home/home_screen.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -39,7 +41,9 @@ class _SplashScreenState extends State<SplashScreen>
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => HomeScreen(title: 'Flutter Ibtikar Task',)),
+            MaterialPageRoute(builder: (context) => ChangeNotifierProvider(
+                create: (context) => HomeScreenProvider(),
+                builder: (context, child) => HomeScreen(title: 'Flutter Ibtikar Task',))),
                 (Route<dynamic> route) => false);
 
       }
