@@ -1,8 +1,10 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:ibtikar_test/data/providers/home_screen_provider.dart';
 import 'package:ibtikar_test/ui/home/components/single_person_card.dart';
+import 'package:ibtikar_test/utilities/connictivity.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -17,13 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<HomeScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Provider.of<HomeScreenProvider>(context, listen: false)
-        .getPopularPersonsList();
-  }
+
   RefreshController _refreshController =
   RefreshController(initialRefresh: false);
 
@@ -40,6 +36,14 @@ class _MyHomePageState extends State<HomeScreen> {
 
     _refreshController.loadComplete();
   }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<HomeScreenProvider>(context, listen: false)
+        .getPopularPersonsList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

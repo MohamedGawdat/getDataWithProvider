@@ -5,7 +5,7 @@ import 'package:ibtikar_test/constants.dart';
 import 'package:ibtikar_test/data/models/person/people_model.dart';
 import 'package:ibtikar_test/data/providers/person_details_provider.dart';
 import 'package:ibtikar_test/style/app_text_style.dart';
-import 'package:ibtikar_test/utilities/image_view.dart';
+import 'package:ibtikar_test/utilities/images_handler/image_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 

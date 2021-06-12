@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ibtikar_test/style/app_colours.dart';
-import 'package:ibtikar_test/utilities/image_full_screen.dart';
+import 'package:ibtikar_test/utilities/images_handler/image_full_screen.dart';
 import 'package:ibtikar_test/utilities/navigation.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:shimmer/shimmer.dart';

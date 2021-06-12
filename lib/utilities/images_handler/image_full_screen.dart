@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibtikar_test/constants.dart';
-import 'package:ibtikar_test/utilities/save_image_to_gallery.dart';
+import 'package:ibtikar_test/utilities/images_handler/save_image_to_gallery.dart';
 import 'package:photo_view/photo_view.dart';
 
 class ImageFullScreen extends StatelessWidget {
