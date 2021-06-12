@@ -27,7 +27,7 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 5),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -39,7 +39,7 @@ class _SinglePersonCardState extends State<SinglePersonCard> {
               fit: BoxFit.fill,
             ),
             Text(widget.data.name,style: normalTextBold,),
-            Flexible(child: Text(concatenate.toString(),style: smallGreyText,maxLines: 2,))
+            Flexible(child: Text(concatenate.toString(),style: smallGreyText,maxLines: 2,textAlign: TextAlign.center,))
           ],
         ),
       ),
