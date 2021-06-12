@@ -4,8 +4,8 @@
 
     <application
         android:requestLegacyExternalStorage="true"
-        android:label="ibtikar_test"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Ibtiakr Task"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

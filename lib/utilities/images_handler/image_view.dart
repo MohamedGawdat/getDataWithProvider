@@ -25,12 +25,17 @@ class ImageView extends StatelessWidget {
   CachedNetworkImage buildCachedNetworkImage() {
     return CachedNetworkImage(
     imageUrl: url,
-    placeholder: (context, url) =>   Shimmer.fromColors(
-      baseColor: AppColors.Sec_Color,
-      highlightColor: AppColors.Sec_Color2,
-      child: SizedBox(
-        width: this.width,
-        height: this.height,
+    placeholder: (context, url) =>   SizedBox(
+      width: this.width,
+      height: this.height,
+      child: Shimmer.fromColors(
+        baseColor: AppColors.greyColor,
+        highlightColor: AppColors.MainTextColor,
+        child: Container(
+          width: this.width,
+          height: this.height,
+          color: Colors.white70,
+        ),
       ),
     ),
     errorWidget: (context, url, error) => Icon(Icons.error),
