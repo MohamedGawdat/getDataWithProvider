@@ -11,9 +11,9 @@ class AppTheme {
       buttonColor: AppColors.PRIMARY,
       // buttonColor: AppColors.YELLOW_COLOR,
       primaryTextTheme:
-      TextTheme(headline6: TextStyle(color: AppColors.MainTextColor)),
+      TextTheme(headline6: TextStyle(color: AppColors.Sec_Color, fontWeight: FontWeight.w700,letterSpacing: 1)),
       appBarTheme: AppBarTheme(
-          actionsIconTheme: IconThemeData(color: AppColors.PRIMARY),
+          actionsIconTheme: IconThemeData(color: AppColors.Sec_Color),
           backgroundColor: AppColors.PRIMARY,
           elevation: 1,
           centerTitle: true,
