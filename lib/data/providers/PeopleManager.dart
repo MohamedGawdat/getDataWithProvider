@@ -26,18 +26,19 @@ class PeopleManager {
     if (await checkInternetConnection()) {
       return _getPeopleNextPage();
     } else
-      return [];
+      return peopleResults;
   }
 
   Future<List<PopularPersonResults>> resetPeopleList() async {
     if (await checkInternetConnection()) {
       return _resetPeopleList();
     } else
-      return [];
+      return _getCachedPeople();
   }
 
-  _getCachedPeople() {
-    return AppCache.getPeopleListFromCache();
+  _getCachedPeople() async {
+    peopleResults = await AppCache.getPeopleListFromCache();
+    return peopleResults;
   }
 
   FutureOr<List<PopularPersonResults>> _getPeopleFromNetwork() async {
