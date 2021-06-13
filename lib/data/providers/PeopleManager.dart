@@ -37,7 +37,7 @@ class PeopleManager {
       return _getCachedPeople();
   }
 
-  _getCachedPeople() async {
+  FutureOr<List<PopularPersonResults>> _getCachedPeople() async {
     peopleResults = await AppCache.getPeopleListFromCache();
     return peopleResults;
   }
