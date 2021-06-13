@@ -30,6 +30,7 @@ class PeopleManager {
   }
 
   Future<List<PopularPersonResults>> resetPeopleList() async {
+    currentPage = 1;
     if (await checkInternetConnection()) {
       return _resetPeopleList();
     } else
@@ -54,8 +55,8 @@ class PeopleManager {
   FutureOr<List<PopularPersonResults>> _getPeopleNextPage() async {
     if (currentPage < totalPages) {
       currentPage++;
-      peopleApiResponse.results = await loadDataFromApi();
-      peopleResults = peopleResults + peopleApiResponse.results;
+      peopleResults = await loadDataFromApi();
+      showToastSuccess(msg: 'Page $currentPage/$totalPages');
     } else {
       showToastError(msg: 'You Had Reach The Last Page');
     }
@@ -66,9 +67,9 @@ class PeopleManager {
   FutureOr<List<PopularPersonResults>> _resetPeopleList() async {
     currentPage = 1;
     peopleResults = [];
-    peopleApiResponse.results = await loadDataFromApi();
+    peopleResults = await loadDataFromApi();
     showToastSuccess(msg: 'Refresh');
-    return peopleApiResponse.results;
+    return peopleResults;
   }
 
   Future<List<PopularPersonResults>> loadDataFromApi() async {
@@ -81,14 +82,13 @@ class PeopleManager {
       peopleApiResponse =
           PeopleApiResponse.fromJson(response.data as Map<String, dynamic>);
       if (currentPage == 1) CacheUtil.save('personsPage1', response.data);
-
+      peopleResults = peopleResults + peopleApiResponse.results;
       totalPages = peopleApiResponse.totalPages;
       currentPage = peopleApiResponse.page;
-      return peopleApiResponse.results;
+      return peopleResults;
     } else {
-      EasyLoading.showError('Connection Error');
-
-      return [];
+      EasyLoading.showError('Error');
+      return peopleResults;
     }
   }
 }
