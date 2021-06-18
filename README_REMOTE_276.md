@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# getDataWithProvider
-=======
 please attention for this some tasks that didnt mentioned in the main task but i had add them
 - animation on splash screen
 - load infinity data on home screen
@@ -11,4 +8,3 @@ please attention for this some tasks that didnt mentioned in the main task but i
 
 simi video
 https://drive.google.com/file/d/12T8r7UIK1vGPyWggdmPHzrgFyDWuaWYB/view?usp=drivesdk
->>>>>>> 5983c07beca1179c70c5e811eeba247725662959
